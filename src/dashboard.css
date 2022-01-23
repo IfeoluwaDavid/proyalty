@@ -1,0 +1,11 @@
+.MuiTable-root {
+  background-color: green;
+}
+
+.MuiTableBody-root {
+  background-color: #355b6e;
+}
+
+.MuiTableHead-root {
+  background-color: red;
+}
