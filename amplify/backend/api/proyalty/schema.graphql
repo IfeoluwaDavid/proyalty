@@ -1,0 +1,10 @@
+type Artist @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  rate: Float!
+  streams: Int!
+  payout: Float
+  averagePayout: Float
+  paidOut: Boolean
+}
+ 

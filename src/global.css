@@ -1,0 +1,16 @@
+html {
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #bad2de;
+  background-image: linear-gradient(to top right, #0f1a20, #274554);
+  padding: 5rem;
+  height: 100vh;
+}
+
+.MuiTable-root {
+  color: "red";
+}
