@@ -10,6 +10,11 @@
       "StackName": "amplify-proyalty-staging-134612",
       "StackId": "arn:aws:cloudformation:us-east-1:743987966558:stack/amplify-proyalty-staging-134612/ab366040-76d2-11ec-8f63-0af0fb98427d",
       "AmplifyAppId": "d12t2j3jmlwk6c"
+    },
+    "categories": {
+      "auth": {
+        "proyaltyfc3af41c": {}
+      }
     }
   }
 }

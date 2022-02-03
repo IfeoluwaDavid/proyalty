@@ -1,0 +1,112 @@
+html {
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    align-items: center;
+    background-color: #091929;
+    height: 95vh;
+    font-family: 'Montserrat';
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+header {
+    font-size: 2rem;
+    font-weight: bolder;
+    padding: 2rem 0rem;
+    color: #d7dce1;
+    letter-spacing: 2rem;
+}
+
+span {
+    font-weight: bolder;
+}
+
+/******************************************/
+/******************************************/
+
+.MuiToolbar-root {
+    background-color: #24466b;
+}
+
+.MuiTableContainer-root {
+    background-color: #1a344f;
+}
+
+.MuiTableCell-root {
+    border-bottom: 1px solid #091929;
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 1.2rem;
+}
+
+.MuiButtonBase-root {
+    /* color: white; */
+    font-family: 'Montserrat';
+    font-size: 1.2rem;
+    font-weight: bolder;
+    letter-spacing: 0.1rem;
+}
+
+.MuiTypography-root {
+    font-family: 'Montserrat';
+    color: #d7dce1;
+    font-weight: bolder;
+    letter-spacing: 0.1rem;
+}
+
+.MuiCheckbox-root {
+    color: white;
+}
+
+.MuiFormLabel-root {
+    color: #d7dce1;
+}
+
+.MuiButton-root {
+    height: 2.5rem;
+    font-size: 1rem;
+}
+
+.MuiButton-root:hover {
+    background: crimson;
+}
+/******************************************/
+/******************************************/
+
+.List {
+    border: 1px solid #d9dddd;
+    width: 5rem;
+}
+
+.ListItemEven,
+.ListItemOdd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ListItemEven {
+    background-color: #f8f8f0;
+}
+
+/******************************************/
+/******************************************/
+
+.dashboard {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+.artiste-management-table {
+    margin-right: 1rem;
+}
+
+/******************************************/
+/******************************************/
