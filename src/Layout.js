@@ -3,23 +3,13 @@ import PaidIcon from '@mui/icons-material/Paid';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
-// import awsExports from './aws-exports';
-
-// Amplify.configure(awsExports);
+import './styles.css';
 
 const Layout = ({ children, signOut, user }) => {
-    console.log(`Hello ${user.username}`);
+    console.log(user);
     return (
         <div style={{ width: 'fit-content', margin: '0 auto' }}>
-            <header
-                style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'space-between'
-                }}
-            >
+            <header>
                 <div
                     style={{
                         display: 'flex',
@@ -29,7 +19,8 @@ const Layout = ({ children, signOut, user }) => {
                 >
                     <PaidIcon
                         sx={{
-                            fontSize: 55
+                            fontSize: 50,
+                            color: 'white'
                         }}
                     />
                     <Typography
@@ -38,7 +29,8 @@ const Layout = ({ children, signOut, user }) => {
                         sx={{
                             fontSize: 35,
                             margin: '0rem 1rem',
-                            alignSelf: 'center'
+                            alignSelf: 'center',
+                            color: '#047d95'
                         }}
                     >
                         Proyalty
@@ -50,6 +42,7 @@ const Layout = ({ children, signOut, user }) => {
                     variant="contained"
                     endIcon={<LogoutIcon />}
                     onClick={signOut}
+                    className="sign-out-button"
                 >
                     Sign Out
                 </Button>
@@ -67,5 +60,5 @@ const Layout = ({ children, signOut, user }) => {
     );
 };
 
-// export default Layout;
-export default withAuthenticator(Layout);
+export default Layout;
+// export default withAuthenticator(Layout);

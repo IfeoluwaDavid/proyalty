@@ -1,3 +1,9 @@
+:root {
+    --componentsColor: #047d95;
+    --surfaceColor: #efefef;
+    --secondarySurfaceColor: white;
+}
+
 html {
     width: 100%;
     scroll-behavior: smooth;
@@ -5,7 +11,7 @@ html {
 
 body {
     align-items: center;
-    background-color: #091929;
+    background-color: var(--surfaceColor);
     height: 95vh;
     font-family: 'Montserrat';
 }
@@ -16,32 +22,44 @@ code {
 }
 
 header {
-    font-size: 2rem;
+    /* font-size: 2rem;
     font-weight: bolder;
     padding: 2rem 0rem;
-    color: #d7dce1;
-    letter-spacing: 2rem;
+    color: var(--componentsColor);
+    letter-spacing: 2rem; */
+
+    background-color: var(--componentsColor);
+    margin: 2rem 0rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    border-radius: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 span {
     font-weight: bolder;
 }
 
+h6 {
+    color: white;
+}
+
 /******************************************/
 /******************************************/
 
 .MuiToolbar-root {
-    background-color: #24466b;
+    background-color: var(--componentsColor);
 }
 
 .MuiTableContainer-root {
-    background-color: #1a344f;
+    background-color: var(--secondarySurfaceColor);
 }
 
 .MuiTableCell-root {
-    border-bottom: 1px solid #091929;
-    color: white;
+    border-bottom: 1px solid var(--componentsColor);
     font-family: 'Montserrat';
+    color: var(--componentsColor);
     font-size: 1.2rem;
 }
 
@@ -55,13 +73,13 @@ span {
 
 .MuiTypography-root {
     font-family: 'Montserrat';
-    color: #d7dce1;
+    color: white;
     font-weight: bolder;
     letter-spacing: 0.1rem;
 }
 
 .MuiCheckbox-root {
-    color: white;
+    color: var(--componentsColor);
 }
 
 .MuiFormLabel-root {
@@ -71,16 +89,19 @@ span {
 .MuiButton-root {
     height: 2.5rem;
     font-size: 1rem;
+    background: white;
+    color: var(--componentsColor);
 }
 
 .MuiButton-root:hover {
     background: crimson;
+    color: white;
 }
 /******************************************/
 /******************************************/
 
 .List {
-    border: 1px solid #d9dddd;
+    border: 1px solid var(--componentsColor);
     width: 5rem;
 }
 
@@ -92,7 +113,7 @@ span {
 }
 
 .ListItemEven {
-    background-color: #f8f8f0;
+    background-color: var(--componentsColor);
 }
 
 /******************************************/
@@ -106,6 +127,55 @@ span {
 
 .artiste-management-table {
     margin-right: 1rem;
+}
+
+.action-log-head-container {
+    padding: 1rem;
+    border-radius: 0rem;
+    background: var(--componentsColor);
+    display: flex;
+    flex-direction: row;
+}
+
+.action-log-body-container {
+    height: 'fit-content';
+    min-width: 360;
+    background-color: var(--secondarySurfaceColor);
+}
+
+.action-log-header {
+    color: 'white';
+    align-self: 'center';
+    margin-right: '1rem';
+}
+
+.sign-out-button {
+    background: 'white';
+    margin: '2rem';
+    align-self: center;
+}
+
+.sign-out-button:hover {
+    height: 2.5rem;
+    font-size: 1rem;
+    background: crimson;
+    color: white;
+}
+
+.update-artiste-button {
+    background: 'white';
+    margin: '0rem 2rem';
+}
+
+.update-artiste-button:hover {
+    font-size: '0.8rem';
+    background: var(--secondarySurfaceColor);
+    color: var(--componentsColor);
+}
+
+.text-input-fields {
+    color: white;
+    border-color: red;
 }
 
 /******************************************/

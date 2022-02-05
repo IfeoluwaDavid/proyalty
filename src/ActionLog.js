@@ -10,22 +10,10 @@ import Avatar from '@mui/material/Avatar';
 import ImageIcon from '@mui/icons-material/Image';
 import HistoryIcon from '@mui/icons-material/History';
 
-// <div className={index % 2 ? "ListItemOdd" : "ListItemEven"} style={style}>
-//   Row {index}
-// </div>
-
 const ActionLog = () => {
     return (
         <div>
-            <Paper
-                sx={{
-                    padding: '1rem',
-                    borderRadius: '0rem',
-                    background: '#24466b',
-                    display: 'flex',
-                    flexDirection: 'row'
-                }}
-            >
+            <Paper className="action-log-head-container">
                 <HistoryIcon
                     sx={{
                         color: 'white',
@@ -34,18 +22,16 @@ const ActionLog = () => {
                         fontSize: 32
                     }}
                 />
-                <Typography variant="h6" component="div">
+                <Typography
+                    variant="h6"
+                    component="div"
+                    className="action-log-header"
+                >
                     Activity Log
                 </Typography>
             </Paper>
             <Divider />
-            <List
-                sx={{
-                    height: 'fit-content',
-                    minWidth: 360,
-                    bgcolor: '#1a344f'
-                }}
-            >
+            <List className="action-log-body-container">
                 <ListItem>
                     <ListItemAvatar>
                         <Avatar>

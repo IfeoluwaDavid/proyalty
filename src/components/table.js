@@ -5,60 +5,19 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import TableSortLabel from '@mui/material/TableSortLabel';
-import Toolbar from '@mui/material/Toolbar';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Chip from '@mui/material/Chip';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import SendIcon from '@mui/icons-material/Send';
 import PendingIcon from '@mui/icons-material/Pending';
-import { visuallyHidden } from '@mui/utils';
 import { DataStore } from 'aws-amplify';
-import { Artist } from './models';
-import './styles.css';
-
-const headCells = [
-    {
-        id: 'id',
-        label: 'ID'
-    },
-    {
-        id: 'artist',
-        label: 'Artist'
-    },
-    {
-        id: 'rate',
-        label: 'Rate'
-    },
-    {
-        id: 'streams',
-        label: 'Streams'
-    },
-    {
-        id: 'payout',
-        label: 'Pay Out'
-    },
-    {
-        id: 'paidOut',
-        label: 'Paid Out'
-    }
-    // {
-    //   id: "averagePayout",
-    //   label: "Average Payout",
-    // },
-];
+import { Artist } from '../models';
+import { TableToolbar } from './table-toolbar';
+import { TableHeader } from './table-header';
+import '../styles.css';
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -90,151 +49,7 @@ function stableSort(array, comparator) {
     return stabilizedThis.map((el) => el[0]);
 }
 
-EnhancedTableHead.propTypes = {
-    numSelected: PropTypes.number.isRequired,
-    onRequestSort: PropTypes.func.isRequired,
-    onSelectAllClick: PropTypes.func.isRequired,
-    order: PropTypes.oneOf(['asc', 'desc']).isRequired,
-    orderBy: PropTypes.string.isRequired,
-    rowCount: PropTypes.number.isRequired
-};
-
-function EnhancedTableHead(props) {
-    const {
-        onSelectAllClick,
-        order,
-        orderBy,
-        numSelected,
-        rowCount,
-        onRequestSort
-    } = props;
-    const createSortHandler = (property) => (event) => {
-        onRequestSort(event, property);
-    };
-
-    return (
-        <TableHead>
-            <TableRow>
-                <TableCell padding="checkbox">
-                    <Checkbox
-                        color="primary"
-                        indeterminate={
-                            numSelected > 0 && numSelected < rowCount
-                        }
-                        checked={rowCount > 0 && numSelected === rowCount}
-                        onChange={onSelectAllClick}
-                        inputProps={{
-                            'aria-label': 'select all'
-                        }}
-                    />
-                </TableCell>
-                {headCells.map((headCell) => (
-                    <TableCell
-                        key={headCell.id}
-                        sortDirection={orderBy === headCell.id ? order : false}
-                    >
-                        <TableSortLabel
-                            // active={orderBy === headCell.id}
-                            direction={orderBy === headCell.id ? order : 'asc'}
-                            onClick={createSortHandler(headCell.id)}
-                        >
-                            {headCell.label}
-                            {orderBy === headCell.id ? (
-                                <Box component="span" sx={visuallyHidden}>
-                                    {order === 'desc'
-                                        ? 'sorted descending'
-                                        : 'sorted ascending'}
-                                </Box>
-                            ) : null}
-                        </TableSortLabel>
-                    </TableCell>
-                ))}
-            </TableRow>
-        </TableHead>
-    );
-}
-
-const EnhancedTableToolbar = (props) => {
-    const { numSelected } = props;
-
-    return (
-        <Toolbar
-            sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                padding: '0.5rem',
-                color: 'white'
-                // px: { sm: 2 },
-                // pr: { xs: 1, sm: 1 },
-                // ...(numSelected > 0 && {
-                //   bgcolor: (theme) =>
-                //     alpha(
-                //       theme.palette.primary.main,
-                //       theme.palette.action.activatedOpacity
-                //     ),
-                // }),
-            }}
-        >
-            <TextField
-                id="outlined-basic"
-                label="Search Artistes"
-                variant="outlined"
-                size="small"
-            />
-
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
-                {numSelected === 1 && (
-                    <>
-                        <Tooltip title="Edit">
-                            <IconButton>
-                                <EditIcon />
-                            </IconButton>
-                        </Tooltip>
-                    </>
-                )}
-                {numSelected > 0 && (
-                    <>
-                        <Tooltip title="Delete">
-                            <IconButton>
-                                <DeleteIcon />
-                            </IconButton>
-                        </Tooltip>
-                        <Button
-                            variant="contained"
-                            endIcon={<SendIcon />}
-                            style={{
-                                fontSize: '0.8rem',
-                                background: '#091929',
-                                margin: '0rem 1rem'
-                            }}
-                        >
-                            Pay Out
-                        </Button>
-                    </>
-                )}
-
-                <Button
-                    variant="contained"
-                    endIcon={<AddCircleIcon />}
-                    style={{
-                        fontSize: '0.8rem',
-                        background: '#091929',
-                        margin: '0rem 1rem'
-                    }}
-                >
-                    Add New Artiste
-                </Button>
-            </div>
-        </Toolbar>
-    );
-};
-
-EnhancedTableToolbar.propTypes = {
-    numSelected: PropTypes.number.isRequired
-};
-
-export default function ArtistManagement() {
+const ArtistTable = () => {
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('id');
     const [selected, setSelected] = React.useState([]);
@@ -301,10 +116,6 @@ export default function ArtistManagement() {
         setPage(0);
     };
 
-    const handleChangeDense = (event) => {
-        setDense(event.target.checked);
-    };
-
     const isSelected = (id) => selected.indexOf(id) !== -1;
 
     // Avoid a layout jump when reaching the last page with empty rows.
@@ -314,14 +125,14 @@ export default function ArtistManagement() {
     return (
         <Box className="artiste-management-table">
             <Paper sx={{ width: '100%', mb: 2 }}>
-                <EnhancedTableToolbar numSelected={selected.length} />
+                <TableToolbar numSelected={selected.length} />
                 <Divider />
                 <TableContainer>
                     <Table
                         aria-labelledby="tableTitle"
                         size={dense ? 'small' : 'medium'}
                     >
-                        <EnhancedTableHead
+                        <TableHeader
                             numSelected={selected.length}
                             order={order}
                             orderBy={orderBy}
@@ -441,4 +252,19 @@ export default function ArtistManagement() {
       /> */}
         </Box>
     );
-}
+};
+
+TableHeader.propTypes = {
+    numSelected: PropTypes.number.isRequired,
+    onRequestSort: PropTypes.func.isRequired,
+    onSelectAllClick: PropTypes.func.isRequired,
+    order: PropTypes.oneOf(['asc', 'desc']).isRequired,
+    orderBy: PropTypes.string.isRequired,
+    rowCount: PropTypes.number.isRequired
+};
+
+TableToolbar.propTypes = {
+    numSelected: PropTypes.number.isRequired
+};
+
+export default ArtistTable;
