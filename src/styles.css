@@ -66,7 +66,7 @@ h6 {
 .MuiButtonBase-root {
     /* color: white; */
     font-family: 'Montserrat';
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     font-weight: bolder;
     letter-spacing: 0.1rem;
 }
@@ -88,32 +88,14 @@ h6 {
 
 .MuiButton-root {
     height: 2.5rem;
-    font-size: 1rem;
     background: white;
+    margin: 0rem 0.5rem;
     color: var(--componentsColor);
 }
 
 .MuiButton-root:hover {
     background: crimson;
     color: white;
-}
-/******************************************/
-/******************************************/
-
-.List {
-    border: 1px solid var(--componentsColor);
-    width: 5rem;
-}
-
-.ListItemEven,
-.ListItemOdd {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.ListItemEven {
-    background-color: var(--componentsColor);
 }
 
 /******************************************/
@@ -138,37 +120,30 @@ h6 {
 }
 
 .action-log-body-container {
-    height: 'fit-content';
+    height: fit-content;
     min-width: 360;
     background-color: var(--secondarySurfaceColor);
 }
 
 .action-log-header {
-    color: 'white';
-    align-self: 'center';
-    margin-right: '1rem';
+    color: white;
+    align-self: center;
+    margin-right: 1rem;
 }
 
 .sign-out-button {
-    background: 'white';
-    margin: '2rem';
+    background: white;
     align-self: center;
 }
 
 .sign-out-button:hover {
     height: 2.5rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     background: crimson;
     color: white;
 }
 
-.update-artiste-button {
-    background: 'white';
-    margin: '0rem 2rem';
-}
-
 .update-artiste-button:hover {
-    font-size: '0.8rem';
     background: var(--secondarySurfaceColor);
     color: var(--componentsColor);
 }

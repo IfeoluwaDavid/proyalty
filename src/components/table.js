@@ -241,6 +241,10 @@ const ArtistTable = () => {
                     page={page}
                     onPageChange={handleChangePage}
                     onRowsPerPageChange={handleChangeRowsPerPage}
+                    sx={{
+                        color: 'white',
+                        fontWeight: 'bolder'
+                    }}
                 />
             </Paper>
             {/* <FormControlLabel

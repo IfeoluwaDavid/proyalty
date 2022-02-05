@@ -74,6 +74,11 @@ export function TableToolbar(props) {
             />
 
             <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <Tooltip title="Add">
+                    <IconButton>
+                        <AddCircleIcon />
+                    </IconButton>
+                </Tooltip>
                 {numSelected === 1 && (
                     <div>
                         <Tooltip title="Edit">
@@ -99,13 +104,6 @@ export function TableToolbar(props) {
                         </Button>
                     </div>
                 )}
-                <Button
-                    variant="contained"
-                    endIcon={<AddCircleIcon />}
-                    className="update-artiste-button"
-                >
-                    Add
-                </Button>
             </div>
         </Toolbar>
     );
