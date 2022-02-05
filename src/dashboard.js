@@ -1,9 +1,6 @@
 /* eslint-disable react/style-prop-object */
-import React from 'react';
 import ArtistTable from './components/table';
 import ActionLog from './ActionLog';
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
 import './styles.css';
 
 const dashboard = () => {
@@ -15,4 +12,4 @@ const dashboard = () => {
     );
 };
 
-export default withAuthenticator(dashboard);
+export default dashboard;
