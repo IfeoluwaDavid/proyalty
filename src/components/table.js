@@ -54,7 +54,7 @@ const ArtistTable = () => {
     const [orderBy, setOrderBy] = React.useState('id');
     const [selected, setSelected] = React.useState([]);
     const [page, setPage] = React.useState(0);
-    const [dense, setDense] = React.useState(false);
+    // const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const [artists, setArtists] = React.useState([]);
 
@@ -128,10 +128,7 @@ const ArtistTable = () => {
                 <TableToolbar numSelected={selected.length} />
                 <Divider />
                 <TableContainer>
-                    <Table
-                        aria-labelledby="tableTitle"
-                        size={dense ? 'small' : 'medium'}
-                    >
+                    <Table aria-labelledby="tableTitle" size="medium">
                         <TableHeader
                             numSelected={selected.length}
                             order={order}
@@ -226,9 +223,9 @@ const ArtistTable = () => {
                                 })}
                             {emptyRows > 0 && (
                                 <TableRow
-                                    style={{
-                                        height: (dense ? 33 : 53) * emptyRows
-                                    }}
+                                // style={{
+                                //     height: 53 * emptyRows
+                                // }}
                                 >
                                     <TableCell colSpan={6} />
                                 </TableRow>

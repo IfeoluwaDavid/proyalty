@@ -5,8 +5,7 @@ import Button from '@mui/material/Button';
 import LogoutIcon from '@mui/icons-material/Logout';
 import './styles.css';
 
-const Layout = ({ children, signOut, user }) => {
-    console.log(user);
+const Layout = ({ children, signOut }) => {
     return (
         <div style={{ width: 'fit-content', margin: '0 auto' }}>
             <header>

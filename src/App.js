@@ -10,10 +10,11 @@ import '@aws-amplify/ui-react/styles.css';
 
 Amplify.configure(awsconfig);
 
-function App() {
+function App({ signOut, user }) {
+    console.log('here you go bruh -', user);
     return (
         <StyledEngineProvider injectFirst>
-            <Layout>
+            <Layout signOut={signOut}>
                 <Routes>
                     <Route path="/" element={<Dashboard />} />
                 </Routes>
